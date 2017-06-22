@@ -5,5 +5,4 @@
 extern unsigned long sysTickCounts;
 extern elapsedMicros systickMicros;
 
-
 #endif
