@@ -2,6 +2,7 @@
 #include "pinout.h"
 #include "tone.h"
 #include <QTRSensors.h> //sensor bar
+#include "oled.h"
 
 
 //wheel diameter 32
@@ -122,23 +123,27 @@ void encoderReset(){
 }
 
 void setupSensors(){
-  Serial.print("Calibrating sensor bar");
+  oled.clear(PAGE);  // Clear the page
+  oled.setCursor(0,0); // move cursor
+  oled.println("Calibrating sensor bar");
+  oled.display();  // Send the PAGE to the OLED memory
   for (int i = 0; i < 400; i++)  // make the calibration take about 10 seconds
   {
     qtra.calibrate();       // reads all sensors 10 times at 2.5 ms per six sensors (i.e. ~25 ms per call)
   }
   for (int i = 0; i < NUM_SENSORS; i++)
   {
-    Serial.print(qtra.calibratedMinimumOn[i]);
-    Serial.print(' ');
+    oled.print(qtra.calibratedMinimumOn[i]);
+    oled.print(" ");
   }
-  Serial.println();
+  oled.print("/n");
   // print the calibration maximum values measured when emitters were on
   for (int i = 0; i < NUM_SENSORS; i++)
   {
-    Serial.print(qtra.calibratedMaximumOn[i]);
-    Serial.print(' ');
+    oled.print(qtra.calibratedMaximumOn[i]);
+    oled.print(" ");
   }
+  oled.display();  // Send the PAGE to the OLED memory
 }
 
 int readSensors(){
