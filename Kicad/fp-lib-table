@@ -1,0 +1,7 @@
+(fp_lib_table
+  (lib (name DCDC)(type KiCad)(uri "$(KIPRJMOD)/DCDC.pretty")(options "")(descr ""))
+  (lib (name DRV8833pololu)(type KiCad)(uri "$(KIPRJMOD)/DRV8833pololu.pretty")(options "")(descr ""))
+  (lib (name N20motorEncSuport)(type KiCad)(uri "$(KIPRJMOD)/N20motorEncSuport.pretty")(options "")(descr ""))
+  (lib (name teensy)(type KiCad)(uri "$(KIPRJMOD)/teensy.pretty")(options "")(descr ""))
+  (lib (name racestarESC20A)(type KiCad)(uri "$(KIPRJMOD)/racestarESC20A.pretty")(options "")(descr ""))
+)
